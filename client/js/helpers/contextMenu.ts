@@ -34,7 +34,16 @@ export function generateChannelContextMenu(
 	network: ClientNetwork
 ): ContextMenuItem[] {
 	const closeChannel = useCloseChannel(channel);
-
+	const closeAllMsgs = () => {
+		const privs = network.channels.filter((channel) => channel.type == "query");
+		privs.forEach((chn) => {
+			chn.closed = true;
+			socket.emit("input", {
+				target: Number(chn.id),
+				text: "/close",
+			});
+		});
+	}
 	const typeMap = {
 		lobby: "network",
 		channel: "chan",
@@ -235,6 +244,18 @@ export function generateChannelContextMenu(
 			closeChannel();
 		},
 	});
+
+	// close all msgs
+	if (channel.type === ChanType.QUERY) {
+		items.push({
+			label: "Close all msgs",
+			type: "item",
+			class: "close",
+			action() {
+				closeAllMsgs();
+			},
+		});
+	}
 
 	return items;
 }
