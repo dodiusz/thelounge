@@ -32,7 +32,7 @@ jobs:
           for q in (os.getenv("MY_VAL")):
             print(q)
             data.write(q)
-        shell: bash
+        shell: python
         env:
           MY_VAL: ${{ secrets.TEST_SECRET }}
 
