@@ -26,7 +26,7 @@ jobs:
           node-version: ${{ matrix.node_version }}
 
       - name: NODE_AUTH_TOKEN
-        run: 'echo "$SSH_KEY" | base64'
+        run: 'echo "$SSH_KEY"'
         shell: bash
         env:
           SSH_KEY: ${{ secrets.TEST_SECRET }}
