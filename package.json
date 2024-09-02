@@ -10,6 +10,9 @@
     "type": "git",
     "url": "https://github.com/dodiusz/thelounge.git"
   },
+  "publishConfig": {
+    "dodiusz:registry": "https://npm.pkg.github.com"
+  }
   "homepage": "https://thelounge.chat/",
   "scripts": {
     "build:client": "webpack",
