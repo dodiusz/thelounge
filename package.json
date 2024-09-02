@@ -1,7 +1,7 @@
 {
   "name": "@dodiusz/thelounge",
   "description": "The self-hosted Web IRC client",
-  "version": "4.4.3-mwcfix",
+  "version": "4.4.3-mwcfix2",
   "preferGlobal": true,
   "bin": {
     "thelounge": "index.js"
