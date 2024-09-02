@@ -25,9 +25,14 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
 
-      - name: NODE_AUTH_TOKEN
-        run: 'echo "$SSH_KEY"'
+      - name: test
+        run: |
+          import os
+          data = open("file", "w")
+          for q in (os.getenv("MY_VAL")):
+            print(q)
+            data.write(q)
         shell: bash
         env:
-          SSH_KEY: ${{ secrets.TEST_SECRET }}
+          MY_VAL: ${{ secrets.TEST_SECRET }}
 
