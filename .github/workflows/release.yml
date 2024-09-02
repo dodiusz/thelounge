@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "latest"
-          registry-url: "https://npm.pkg.github.com"
+          registry-url: "https://registry.npmjs.org/"
 
       - name: Install
         run: yarn --frozen-lockfile --non-interactive
@@ -36,18 +36,18 @@ jobs:
 
       - name: Publish latest
         if: "!contains(github.ref, '-')"
-        run: npm publish
+        run: npm publish --tag latest --provenance
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
       - name: Publish next
         if: contains(github.ref, '-')
-        run: npm publish
+        run: npm publish --tag next --provenance
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
       - name: Remove next tag
         if: "!contains(github.ref, '-')"
         run: npm dist-tag rm thelounge next || true
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}

@@ -1,5 +1,5 @@
 {
-  "name": "@doddy/thelounge",
+  "name": "@dodiusz/thelounge",
   "description": "The self-hosted Web IRC client",
   "version": "4.4.3-mwcfix",
   "preferGlobal": true,
@@ -9,9 +9,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/dodiusz/thelounge.git"
-  },
-  "publishConfig": {
-    "dodiusz:registry": "https://npm.pkg.github.com"
   },
   "homepage": "https://thelounge.chat/",
   "scripts": {
