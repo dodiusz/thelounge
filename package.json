@@ -12,7 +12,7 @@
   },
   "publishConfig": {
     "dodiusz:registry": "https://npm.pkg.github.com"
-  }
+  },
   "homepage": "https://thelounge.chat/",
   "scripts": {
     "build:client": "webpack",
